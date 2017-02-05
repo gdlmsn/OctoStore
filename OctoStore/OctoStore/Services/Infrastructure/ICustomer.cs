@@ -14,7 +14,7 @@ namespace OctoStore.Services.Infrastructure
 
         void Insert(Customer cust);
 
-        void Update(Category cust);
+        void Update(Customer cust);
 
         void Delete(int id);
 
