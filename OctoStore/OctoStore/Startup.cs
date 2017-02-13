@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OctoStore.DataContext;
+using OctoStore.Models;
 
 namespace OctoStore
 {
@@ -32,7 +33,9 @@ namespace OctoStore
             // Add framework services.
             services.AddMvc();
             services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-
+            services.AddIdentity<Customer, ApplicationRole>()
+                .AddEntityFrameworkStores<MyContext>()
+                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,11 +56,18 @@ namespace OctoStore
 
             app.UseStaticFiles();
 
+            app.UseIdentity();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                //Admin Area routes
+                routes.MapRoute(
+                    name: "AdminAreaRoute", 
+                    template: "{area:exists}/{controller=ProductsController}/{action=Index}/{id?}");
             });
         }
     }
