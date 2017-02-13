@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using OctoStore.Models;
 using OctoStore.ViewModels;
+using OctoStore.ViewModels.Account;
 
 namespace OctoStore.Controllers
 {
@@ -70,22 +71,51 @@ namespace OctoStore.Controllers
         }
         #endregion
 
-        //#region Login Settings
+        #region Login Settings
 
-        //[]
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
+        []
+        public IActionResult Login()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Login()
-        //{
-        //    return View();
-        //}
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginVM loginVM)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = _signInManager.PasswordSignInAsync(
+                    loginVM.Email,
+                    loginVM.Password,
+                    loginVM.RememberMe,
+                    false
+                    ).Result;
 
-        //#endregion
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Something went wrong");
+                }
+            }
+            return View(loginVM);
+        }
 
+        #endregion
 
+        #region Logout
+
+        [HttpPost, ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login", "Home");
+
+        }
+            
+        #endregion
     }
 }
