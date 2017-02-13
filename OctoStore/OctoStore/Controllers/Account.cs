@@ -73,7 +73,7 @@ namespace OctoStore.Controllers
 
         #region Login Settings
 
-        []
+        [HttpGet]
         public IActionResult Login()
         {
             return View();

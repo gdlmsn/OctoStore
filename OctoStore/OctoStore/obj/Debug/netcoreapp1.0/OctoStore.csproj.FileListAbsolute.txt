@@ -1,9 +1,0 @@
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\bin\Debug\netcoreapp1.0\OctoStore.deps.json
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\bin\Debug\netcoreapp1.0\OctoStore.runtimeconfig.json
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\bin\Debug\netcoreapp1.0\OctoStore.runtimeconfig.dev.json
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\bin\Debug\netcoreapp1.0\OctoStore.dll
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\bin\Debug\netcoreapp1.0\OctoStore.pdb
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.0\OctoStore.csprojResolveAssemblyReference.cache
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.0\OctoStore.AssemblyInfo.cs
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.0\OctoStore.dll
-C:\Users\gdlmsn\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.0\OctoStore.pdb
