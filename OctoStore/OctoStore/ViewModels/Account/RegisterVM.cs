@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OctoStore.ViewModels
+namespace OctoStore.ViewModels.Account
 {
     public class RegisterVM
     {
-        
+
         public string UserName { get; set; }
 
         [Required, DataType(DataType.Password)]

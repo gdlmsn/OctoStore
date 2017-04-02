@@ -31,7 +31,7 @@ namespace OctoStore.Migrations
                     Address1 = table.Column<string>(nullable: true),
                     Address2 = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
-                    CustomerName = table.Column<string>(nullable: false),
+                    CustomerName = table.Column<string>(nullable: true),
                     DateEntered = table.Column<DateTime>(nullable: true),
                     EmailAddress = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),

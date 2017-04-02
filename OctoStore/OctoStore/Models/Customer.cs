@@ -8,22 +8,11 @@ using System.Threading.Tasks;
 
 
 namespace OctoStore.Models
-{   
+{
     [Table("Customer")]
-    public class Customer:IdentityUser
+    public class Customer : IdentityUser
     {
-        public Customer()
-        {
-            CartItems = new HashSet<CartItem>();
-            Orders = new HashSet<Order>();
-        }
-            
-        //public int CustomerId { get; set; }
-
-        [Required(ErrorMessage ="Customer Name is Required")]
         public string CustomerName { get; set; }
-
-        public int CustomerId { get; internal set; }
 
         public string LastName { get; set; }
 
@@ -36,14 +25,6 @@ namespace OctoStore.Models
         [DataType(DataType.PostalCode)]
         public int PostalCode { get; set; }
 
-        [EmailAddress]
-        //public string EmailAddress { get; set; }
-
-        public DateTime? DateEntered  { get; set; }
-
-        public virtual ICollection<CartItem>CartItems { get; set; }
-
-        public virtual ICollection<Order>Orders { get; set; }
-        
+        public DateTime? DateEntered { get; set; }
     }
 }

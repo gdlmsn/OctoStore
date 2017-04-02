@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using OctoStore.Models;
@@ -12,25 +9,25 @@ namespace OctoStore.Controllers
 {
     public class Account : Controller
     {
+
         private readonly UserManager<Customer> _userManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly SignInManager<Customer> _signInManager;
 
-        public Account(UserManager<Customer> userManager, RoleManager<ApplicationRole> roleManager,
-            SignInManager<Customer> signInManager)
+        public Account(UserManager<Customer> userManager, RoleManager<ApplicationRole> roleManager, SignInManager<Customer> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
         }
-        
+
+
         public IActionResult Index()
         {
             return View();
         }
 
         #region Register Settings
-
         [HttpGet]
         public IActionResult Register()
         {
@@ -57,7 +54,7 @@ namespace OctoStore.Controllers
 
                         if (!roleResult.Succeeded)
                         {
-                            ModelState.AddModelError("", "Something went wrong");
+                            ModelState.AddModelError("", "Somethings went wrong !");
                             return View(registerVM);
                         }
                     }
@@ -67,13 +64,13 @@ namespace OctoStore.Controllers
                     return RedirectToAction("Login", "Account");
                 }
             }
+
             return View(registerVM);
         }
         #endregion
 
         #region Login Settings
 
-        [HttpGet]
         public IActionResult Login()
         {
             return View();
@@ -82,23 +79,22 @@ namespace OctoStore.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginVM loginVM)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var result = _signInManager.PasswordSignInAsync(
                     loginVM.Email,
                     loginVM.Password,
                     loginVM.RememberMe,
-                    false
-                    ).Result;
-
+                    false).Result;
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Something went wrong");
+                    ModelState.AddModelError("", "Somethings went wrong !");
                 }
+
             }
             return View(loginVM);
         }
@@ -106,16 +102,13 @@ namespace OctoStore.Controllers
         #endregion
 
         #region Logout
-
         [HttpPost, ValidateAntiForgeryToken]
-
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Login", "Home");
-
+            return RedirectToAction("Login", "Account");
         }
-            
         #endregion
+
     }
 }
