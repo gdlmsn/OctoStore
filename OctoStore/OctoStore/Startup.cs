@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OctoStore.DataContext;
 using OctoStore.Models;
+using OctoStore.Services.Infrastructure;
+using OctoStore.Services.Repository;
 
 namespace OctoStore
 {
@@ -36,6 +38,13 @@ namespace OctoStore
             services.AddIdentity<Customer, ApplicationRole>()
                 .AddEntityFrameworkStores<MyContext>()
                 .AddDefaultTokenProviders();
+            services.AddScoped<IProduct, ProductRepository>();
+            services.AddScoped<ICategory, CategoryRepository>();
+            services.AddScoped<ISubCategory, SubCategoryRepository>();
+            services.AddScoped<IOrder, OrderRepository>();
+            services.AddScoped<IOrderLine, OrderLineRepository>();
+            services.AddScoped<IPicture, PictureRepository>();
+            services.AddScoped<ICartItem, CartItemRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
