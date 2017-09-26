@@ -28,7 +28,7 @@ namespace OctoStore.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View(); 
         }
 
         [HttpPost]
