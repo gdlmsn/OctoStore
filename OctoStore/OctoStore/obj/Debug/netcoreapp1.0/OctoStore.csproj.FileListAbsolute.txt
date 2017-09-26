@@ -16,3 +16,4 @@ C:\Users\gdalm\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.
 C:\Users\gdalm\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.0\OctoStore.AssemblyInfo.cs
 C:\Users\gdalm\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.0\OctoStore.dll
 C:\Users\gdalm\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.0\OctoStore.pdb
+C:\Users\gdalm\Source\Repos\OctoStore\OctoStore\OctoStore\obj\Debug\netcoreapp1.0\OctoStore.csproj.CoreCompileInputs.cache

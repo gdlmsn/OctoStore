@@ -33,7 +33,7 @@ namespace OctoStore.Services.Repository
 
         public IEnumerable<Product> GetAll()
         {
-            return _db.Product.Select(pro => pro);
+            return _db.Product.Select(p => p);
         }
 
         public Product GetById(int id)

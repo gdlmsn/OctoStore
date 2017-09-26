@@ -8,9 +8,10 @@ using OctoStore.DataContext;
 namespace OctoStore.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20170521005523_TryIsActive")]
+    partial class TryIsActive
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
@@ -298,7 +299,7 @@ namespace OctoStore.Migrations
 
                     b.Property<int?>("PictureId");
 
-                    b.Property<string>("ProductImagePath");
+                    b.Property<byte[]>("ProductImagePath");
 
                     b.Property<string>("ProductName")
                         .IsRequired();

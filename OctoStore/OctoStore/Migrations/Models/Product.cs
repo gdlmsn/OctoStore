@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -28,7 +29,12 @@ namespace OctoStore.Models
 
         public int? UnitInStock { get; set; }
 
-        public byte[] ProductImagePath { get; set; }
+        public bool IsActive { get; set; }
+
+        [NotMapped]
+        public IFormFile ProductImage { get; set; }
+
+        public string ProductImagePath { get; set; }
 
         public int? CategoryId { get; set; }
 

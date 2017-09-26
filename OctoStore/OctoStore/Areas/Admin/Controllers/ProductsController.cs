@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using OctoStore.Services.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using OctoStore.Models;
+using OctoStore.Areas.Admin.AdminVm;
+using OctoStore.Services.Repository;
 
 namespace OctoStore.Areas.Admin.Controllers
 {
@@ -30,13 +32,22 @@ namespace OctoStore.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var product = _productRepository.GetAll();
+
+            return View(product);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            var createProduct = new CreateProductVM
+            {
+                Products = new Product(),
+                Categories = _categoryRepository.GetAll().ToList()
+            };
+            return View(createProduct);
         }
+
 
         public IActionResult Update()
         {
